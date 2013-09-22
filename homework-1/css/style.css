@@ -1,0 +1,110 @@
+div {
+    margin-bottom: 10px;
+}
+
+p {
+    margin: 0;
+    padding-bottom: 5px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#wrapper {
+    padding: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+table thead {
+    background-color: #b8b8b8;
+}
+
+table thead th {    
+    padding: 5px;
+    text-align: left;
+    width: 100px;
+}
+
+table thead th:first-child {  
+    width: 30px;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f0f0f0;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: #f8f8f8;
+}
+
+table tbody td {    
+    padding: 5px;
+}
+
+table tfoot {
+    font-weight: bold;
+}
+
+table tfoot td {
+    padding: 5px;
+}
+
+.delete-link {
+    color: #f00;
+}
+
+.edit-link {
+    color: #00f;
+}
+
+a.button {
+    font: bold 11px Arial;
+    text-decoration: none;
+    background-color: #eee;
+    color: #333;
+    padding: 5px;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #333;
+    border-bottom: 1px solid #333;
+    border-left: 1px solid #ccc;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+#expenses-form label {
+    display: inline-block;
+    font-weight: bold;
+    width: 40px;
+}
+
+#error-message,
+#success-message {
+    color: #fff;
+    margin: 10px 0;
+    padding: 5px;
+    width: 250px;
+}
+
+#error-message p,
+#success-message p {
+    padding: 0;
+}
+
+#error-message {
+    background-color: #f30;
+}
+
+#success-message {
+    background-color: #060;
+}
