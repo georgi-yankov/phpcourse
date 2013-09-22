@@ -85,4 +85,3 @@ include './includes/header.php';
             </form>
 <?php
 include './includes/footer.php';
-?>
