@@ -16,7 +16,7 @@ include './includes/header.php';
             ?>
 
             <div id="filter">
-                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
+                <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="get">
                     <select name="date">
                         <?php
                             if (isset($_GET['date']) && !empty($_GET['date'])) {
