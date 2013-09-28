@@ -1,0 +1,325 @@
+header, footer,
+h1, h2, div, p,
+ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+ul, li {
+    list-style: none;
+}
+
+body {
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 14px;
+}
+
+#wrapper {    
+    margin: 40px auto;
+    width: 700px;
+}
+
+h2 {
+    border-bottom: 1px dotted #000;
+    margin-bottom: 20px;
+    padding: 20px 0 5px;
+}
+
+input[type="submit"],
+input[type="reset"]{
+    background-color: #fff;
+}
+
+/* puts dots on overflow */
+.overflow-safe {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/*************************************************
+    CLEAR FLOATS
+*************************************************/
+
+#header:after,
+#gallery:after,
+#gallery p.photo-details:after {
+    clear: both;
+    content: "";
+    display: block;
+    height: 0;
+}
+
+/*************************************************
+    HEADER
+*************************************************/
+
+#header {
+    background-color: #808080;
+    color: #fff;
+    padding: 10px;
+}
+
+#logo {
+    float: left;
+    width: 200px;
+}
+
+#logo a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#login-form {
+    float: right;
+    padding-top: 14px;
+}
+
+#login-form input[type="text"],
+#login-form input[type="password"] {
+    padding: 0 3px;
+    width: 100px;
+}
+
+#login-form input[type="submit"] {
+    background-color: #fff;
+    margin: 0;
+}
+
+#hello-user {
+    font-size: 12px;
+    float: right;
+    padding-top: 14px;
+}
+
+#hello-user a {
+    color: orange;
+    text-decoration: none;
+}
+
+#hello-user a:hover {
+    text-decoration: underline;
+}
+
+/*************************************************
+    CONTENT
+*************************************************/
+
+#content {
+    background-color: #f8f8f8;
+    padding: 10px 30px 30px;
+}
+
+p.error-msg {
+    border: 1px solid #f00;
+    color: #f00;
+    font-size: 14px;
+    margin: 0 auto;
+    padding: 5px 10px;
+    text-align: center;
+    width: 400px;
+}
+
+p.success-msg {
+    border: 1px solid #090;
+    color: #090;
+    font-size: 14px;
+    margin: 0 auto;
+    padding: 5px 10px;
+    text-align: center;
+    width: 400px;
+}
+
+#signup-form p {
+    padding-bottom: 10px;
+}
+
+#signup-form label {
+    display: inline-block;
+    width: 125px;
+}
+
+#signup-form form {
+    padding-top: 10px;
+}
+
+#signup-form input[type="submit"] {
+    margin-left: 131px;
+}
+
+#edit-form p {
+    padding-bottom: 10px;
+}
+
+#edit-form label {
+    display: inline-block;
+    width: 70px;
+}
+
+#edit-form form {
+    padding-top: 10px;
+}
+
+#edit-form input[type="text"] {
+    width: 200px;
+}
+
+#edit-form input[type="submit"] {
+    margin-left: 74px;
+}
+
+#gallery li {
+    border: 1px solid #e8e8e8;
+    display: inline-block;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: 143px;
+    height: 182px;
+}
+
+#gallery li:nth-child(4n+4) {
+    margin-right: 0;
+}
+
+#gallery li a {
+    display: block;
+}
+
+#gallery li:first-child a {
+    border: 2px dashed #c8c8c8;
+    color: #c8c8c8;
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 75px;
+    text-align: center;
+    text-decoration: none;
+    height: 105px;
+}
+
+#gallery li:first-child a:hover {
+    border: 2px dashed #000;
+    color: #000;
+}
+
+#gallery li:first-child {
+    border: none;
+}
+
+#gallery li:first-child:hover {
+    border: none;
+}
+
+#gallery li img {
+    display: block;
+}
+
+#gallery p.photo-title {
+    font-size: 12px;
+    padding: 2px 5px;
+}
+
+#gallery p.photo-title a {
+    border: none;
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#gallery p.photo-title a:hover {
+    text-decoration: underline;
+}
+
+#gallery p.photo-details {
+    font-size: 12px;
+    padding: 0 5px 5px;   
+}
+
+#gallery p.photo-details a {
+    display: inline;  
+}
+
+#gallery span.file-size {
+    display: inline-block;
+    float: left;
+}
+
+#gallery span.action {
+    display: inline-block;
+    float: right;
+}
+
+#gallery span.action a.edit-link {
+    color: #00f;
+    text-decoration: none;
+}
+
+#gallery span.action a.edit-link:hover {
+    text-decoration: underline;
+}
+
+#gallery span.action a.delete-link {
+    color: #f00;
+    text-decoration: none;
+}
+
+#gallery span.action a.delete-link:hover {
+    text-decoration: underline;
+}
+
+#upload-form p {
+    padding-bottom: 10px;
+}
+
+#upload-form label {
+    display: inline-block;
+    width: 70px;
+}
+
+#upload-form input[type="text"] {
+    width: 200px;
+}
+
+#upload-form input[type="submit"] {
+    margin-left: 77px;
+    margin-right: 5px;
+}
+
+#upload-form input[type="submit"],
+#upload-form input[type="reset"] {
+    width: 60px;
+}
+
+#back-btn {    
+    display: inline-block;    
+    margin-bottom: 30px;
+    width: 110px;
+}
+
+#back-btn a {
+    background-color: #a0a0a0;
+    color: #fff;
+    display: block;
+    line-height: 26px;
+    text-align: center;
+    text-decoration: none;    
+}
+
+#back-btn a:hover {
+    background-color: #808080;  
+}
+
+/*************************************************
+    FOOTER
+*************************************************/
+
+#footer {
+    background-color: #808080;
+    color: #fff;
+    font-size: 12px;
+    padding: 6px;
+}
+
+#footer p {
+    text-align: center;
+}

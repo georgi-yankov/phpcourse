@@ -1,0 +1,7 @@
+1|1|72507|Sylvester Stallone
+2|1|154388|Angelina Jolie
+4|1|963327|Robin Williams
+5|1|31253|Jan Klod Van Dam
+6|1|96378|Jennifer Aniston
+7|1|382940|Julia Roberts
+8|1|76082|Stefan Danailov
