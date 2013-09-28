@@ -244,6 +244,21 @@ p.success-msg {
     float: left;
 }
 
+#gallery span.download-icon {
+    background: url('../img/download-icon.png') no-repeat 0 0;
+    display: inline-block;
+    float: left;
+    margin-right: 3px;
+    width: 15px;
+    height: 15px;
+}
+
+#gallery span.download-icon a {
+    display: block;
+    width: 15px;
+    height: 15px;
+}
+
 #gallery span.action {
     display: inline-block;
     float: right;

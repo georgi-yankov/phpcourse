@@ -47,6 +47,7 @@ if (isset($_SESSION['messages'])) {
             echo '</a>';
             echo '<p class="photo-title"><a class="overflow-safe" href="' . $largeImage . '" title="' . $photoTitle . '">' . $photoTitle . '</a></p>';
             echo '<p class="photo-details">';
+            echo '<span class="download-icon"><a href="processing/download.php?post=' . $postId . '" title="download image"></a></span>';
             echo '<span class="file-size">' . $fileSize . '</span>';
             echo '<span class="action"><a class="edit-link" href="edit.php?post=' . $postId . '&title=' . $photoTitle . '">Edit</a> | ';
             echo '<a class="delete-link" href="processing/action.php?post=' . $postId . '">Delete</a></span>';
