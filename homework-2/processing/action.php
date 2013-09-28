@@ -24,7 +24,7 @@ if (isset($_POST['edit']) && $_POST['edit'] == 'Edit') {
     // Validate photo title
     if (mb_strlen($photoTitle) > 40) {
         $_SESSION['messages'] = $messages[12];
-        header('Location: ../edit.php?post=' . $postId . '&title=' . $photoTitle);
+        header('Location: ../edit.php?post=' . $postId . '&title=' . urlencode($photoTitle));
         exit();
     }
     
@@ -40,7 +40,7 @@ if (isset($_POST['edit']) && $_POST['edit'] == 'Edit') {
             file_put_contents($postsDataFile, $newFileContent);
 
             $_SESSION['messages'] = $messages[16];
-            header('Location: ../edit.php?post=' . $postId . '&title=' . $photoTitle);
+            header('Location: ../edit.php?post=' . $postId . '&title=' . urlencode($photoTitle));
             exit();
         }
     }
