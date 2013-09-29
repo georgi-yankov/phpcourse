@@ -8,11 +8,22 @@ mb_internal_encoding('UTF-8');
  * @return boolean
  */
 function existLoggedUser() {
+    $isUserLogged = false;
+    
     if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] == true) {
-        return true;
-    } else {
-        return false;
+        
+        $diff = time() - $_SESSION['time'];
+        $maxTime = 600; // 10 min
+        
+        if ($diff <= $maxTime) {
+            $_SESSION['time'] = time(); // time reset
+            $isUserLogged = true;
+        } else {
+            session_unset();
+        }     
     }
+    
+    return $isUserLogged;
 }
 
 /**
@@ -83,6 +94,7 @@ function keepDataForLoggedUser($username, $userId) {
     $_SESSION['isLogged'] = true;
     $_SESSION['username'] = $username;
     $_SESSION['userId'] = $userId;
+    $_SESSION['time'] = time();
 }
 
 /**
