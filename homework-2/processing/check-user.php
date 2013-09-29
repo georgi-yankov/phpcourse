@@ -42,7 +42,7 @@ switch ($userAction) {
 
         foreach ($allUsers as $value) {
             $currentUser = explode('|', $value);
-            if (($username == $currentUser[1]) && ($password == trim($currentUser[2]))) {
+            if (($username == $currentUser[1]) && (encryptPassword($password) == trim($currentUser[2]))) {
                 $userExist = true;
                 break;
             }
@@ -84,7 +84,7 @@ switch ($userAction) {
             }
 
             // Insert new user
-            $dataToInsert = $userId . '|' . $username . '|' . $password . "\n";
+            $dataToInsert = $userId . '|' . $username . '|' . encryptPassword($password) . "\n";
             file_put_contents($usersDataFile, $dataToInsert, FILE_APPEND);
 
             // Create directories for the new user

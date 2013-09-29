@@ -9,20 +9,20 @@ mb_internal_encoding('UTF-8');
  */
 function existLoggedUser() {
     $isUserLogged = false;
-    
+
     if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] == true) {
-        
+
         $diff = time() - $_SESSION['time'];
         $maxTime = 600; // 10 min
-        
+
         if ($diff <= $maxTime) {
             $_SESSION['time'] = time(); // time reset
             $isUserLogged = true;
         } else {
             session_unset();
-        }     
+        }
     }
-    
+
     return $isUserLogged;
 }
 
@@ -210,4 +210,17 @@ function downloadFile($fullPath) {
     } else {
         die('File Not Found');
     }
+}
+
+/**
+ * Encrypt a password
+ * 
+ * @param string $password
+ * @return string
+ */
+function encryptPassword($password) {
+    $result = base64_encode(str_rot13($password));
+    $result = substr($result, 1, -1);
+    $result = sha1($result);
+    return $result;
 }
