@@ -27,8 +27,8 @@ if (existLoggedUser()) {
                 <?php } else { ?>
                     <div id="login-form">
                         <form method="POST" action="processing/check-user.php" role="form">
-                            <input type="text" name="username" placeholder="username" required />
-                            <input type="password" name="password" placeholder="password" required />
+                            <input type="text" name="username" placeholder="username" value="user" required />
+                            <input type="password" name="password" placeholder="password" value="qwerty" required />
                             <input type="submit" name="user-action" value="Login" />
                         </form>
                     </div>
