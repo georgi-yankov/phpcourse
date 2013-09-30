@@ -25,7 +25,7 @@ if (isset($_SESSION['messages'])) {
     <form method="POST" action="processing/check-user.php" role="form">
         <p>
             <label for="username">Username: </label>
-            <input id="username" type="text" name="username" required />
+            <input id="username" type="text" name="username" required autocomplete="off" />
         </p>
         <p>
             <label for="password">Password: </label>
