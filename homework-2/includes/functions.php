@@ -46,6 +46,7 @@ function safeInput($string) {
  * 
  * @param string $username
  * @param array $messages
+ * @return void
  */
 function validateUsername($username, $messages) {
     if (mb_strlen($username) < 4 || mb_strlen($username) > 12) {
@@ -68,6 +69,7 @@ function validateUsername($username, $messages) {
  * @param string $password
  * @param string $reenterPassword
  * @param array $messages
+ * @return void
  */
 function validatePassword($password, $reenterPassword, $messages) {
     if (mb_strlen($password) < 6 || mb_strlen($password) > 12 ||
@@ -89,6 +91,7 @@ function validatePassword($password, $reenterPassword, $messages) {
  * 
  * @param string $username
  * @param int $userId
+ * @return void
  */
 function keepDataForLoggedUser($username, $userId) {
     $_SESSION['isLogged'] = true;
@@ -140,7 +143,8 @@ function getReadableFileSize($size) {
 /**
  * Downloads a file
  * 
- * @param string $fullPath
+ * @param string $fullPath full path of the file
+ * @return void
  */
 function downloadFile($fullPath) {
 
@@ -215,8 +219,8 @@ function downloadFile($fullPath) {
 /**
  * Encrypt a password
  * 
- * @param string $password
- * @return string
+ * @param string $password the password to be encrypted
+ * @return string the encrypted password
  */
 function encryptPassword($password) {
     $result = base64_encode(str_rot13($password));
