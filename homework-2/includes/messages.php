@@ -4,7 +4,7 @@ $messages = array(
     1 => '<p class="error-msg">Text fields can\'t be empty.</p>',
     2 => '<p class="error-msg">Wrong username or password.</p>',
     3 => '<p class="error-msg">Wrong form submission.</p>',
-    4 => '<p class="success-msg">You successfully signed out.</p>',
+    4 => '<p class="success-msg">You successfully signed out.</p>', // this is not used yet
     5 => '<p class="error-msg">Passwords don\'t match.</p>',
     6 => '<p class="error-msg">Username must be between 4 and 12 symbols.</p>',
     7 => '<p class="error-msg">Passwords must be between 6 and 12 symbols.</p>',

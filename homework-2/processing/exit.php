@@ -10,9 +10,6 @@ if (!existLoggedUser()) {
 }
 
 session_unset();
-
-require '../includes/messages.php';
-
-$_SESSION['messages'] = $messages[4];
+session_destroy();
 header('Location: ../index.php');
 exit();
