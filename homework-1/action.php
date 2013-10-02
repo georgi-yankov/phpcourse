@@ -1,6 +1,6 @@
 <?php
 
-mb_internal_encoding('UTF-8'); 
+mb_internal_encoding('UTF-8');
 
 include './includes/constants.php';
 include './includes/functions.php';
@@ -10,7 +10,7 @@ $fileContentArray = file($fileName);
 $action = $_POST['action'];
 
 if (isset($_POST['row']) && $_POST['row'] != '') {
-    $row = $_POST['row']; 
+    $row = $_POST['row'];
 }
 
 // Delete row
@@ -34,8 +34,7 @@ $item = safeInput($item);
 $price = $_POST['tb-price'];
 $price = safeInput($price);
 $price = str_replace(',', '.', $price);
-$price = (float) $price; 
-$price = number_format($price, 2);
+$price = (float) $price;
 
 $selectType = safeInput($selectType);
 $selectType = (int) $_POST['select-type'];
@@ -72,11 +71,11 @@ if (!array_key_exists($selectType, $itemsType)) {
 
 if ($existError) {
     if ($row != '') {
-       header('Location:expenses.php?action=' . strtolower($action) . '&errorMessage=' . $errorMessage . '&row=' . $row); 
+        header('Location:expenses.php?action=' . strtolower($action) . '&errorMessage=' . $errorMessage . '&row=' . $row);
     } else {
-       header('Location:expenses.php?action=' . strtolower($action) . '&errorMessage=' . $errorMessage);
+        header('Location:expenses.php?action=' . strtolower($action) . '&errorMessage=' . $errorMessage);
     }
-    
+
     exit();
 }
 
@@ -91,7 +90,7 @@ switch ($action) {
             $lastRowArray = explode('!', $lastRow);
             $id = $lastRowArray[0] + 1;
         }
-        
+
         $dataToAdd = $id . '!' . $date . '!' . $item . '!' . $price . '!' . $selectType . "\n";
         file_put_contents($fileName, $dataToAdd, FILE_APPEND);
         $isActionDone = true;
@@ -100,9 +99,9 @@ switch ($action) {
         $dataToReplace = $fileContentArray[$row];
         $dataToReplaceArray = explode('!', $dataToReplace);
         $id = $dataToReplaceArray[0];
-        
-        $dataToAdd = $id . '!' . $date . '!' . $item . '!' . $price . '!' . $selectType . "\n";             
-        
+
+        $dataToAdd = $id . '!' . $date . '!' . $item . '!' . $price . '!' . $selectType . "\n";
+
         $fileContent = str_replace($dataToReplace, $dataToAdd, file_get_contents($fileName));
         file_put_contents($fileName, $fileContent);
 
@@ -114,7 +113,7 @@ switch ($action) {
 
 if ($isActionDone) {
     $successMessage = '<p>' . $action . 'ed successfully!</p>';
-    
+
     if ($action == 'Edit') {
         header('Location:expenses.php?action=' . strtolower($action) . '&successMessage=' . $successMessage . '&row=' . $row);
         exit();
@@ -122,7 +121,6 @@ if ($isActionDone) {
         header('Location:expenses.php?action=' . strtolower($action) . '&successMessage=' . $successMessage);
         exit();
     }
-    
 } else {
     header("Location:expenses.php?errorMessage=<p>Unknown error!</p>");
     exit();

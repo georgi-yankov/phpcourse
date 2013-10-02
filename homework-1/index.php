@@ -117,7 +117,7 @@ include './includes/header.php';
                                 echo '<td>' . $lineNumber . '</td>';
                                 echo '<td>' . $columns[1] . '</td>';
                                 echo '<td>' . $columns[2] . '</td>';
-                                echo '<td>' . $columns[3] . '</td>';
+                                echo '<td>' . number_format($columns[3], 2) . '</td>';
                                 echo '<td>' . $itemsType[trim($columns[4])] . '</td>';
                                 echo '<td>';
                                 echo '<a href="expenses.php?action=edit&row=' . $row . '" class="edit-link">Edit</a> | ';
