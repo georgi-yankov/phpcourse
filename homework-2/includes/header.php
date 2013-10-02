@@ -36,3 +36,8 @@ if (existLoggedUser()) {
             </header><!-- #header -->
 
             <div id="content">
+                <?php
+                    if (isset($_SESSION['messages'])) {
+                        echo $_SESSION['messages'];
+                        unset($_SESSION['messages']);
+                    }

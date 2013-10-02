@@ -12,11 +12,6 @@ if (!existLoggedUser()) {
 $pageTitle = 'Gallery';
 
 require './includes/header.php';
-
-if (isset($_SESSION['messages'])) {
-    echo $_SESSION['messages'];
-    unset($_SESSION['messages']);
-}
 ?>
 
 <h2><?php echo $pageTitle; ?></h2>

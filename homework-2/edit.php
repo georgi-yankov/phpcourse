@@ -13,11 +13,6 @@ $pageTitle = 'Edit';
 
 require './includes/header.php';
 
-if (isset($_SESSION['messages'])) {
-    echo $_SESSION['messages'];
-    unset($_SESSION['messages']);
-}
-
 if (isset($_GET['post']) && isset($_GET['title'])) {
     $postId = (int) $_GET['post'];
     $photoTitle = $_GET['title'];
