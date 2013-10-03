@@ -13,6 +13,12 @@ if (existLoggedUser()) {
 $pageTitle = 'Sign Up';
 
 require './includes/header.php';
+
+if (isset($_SESSION['temp-username'])) {
+    $username = $_SESSION['temp-username'];
+} else {
+    $username = '';
+}
 ?>
 
 <h2><?php echo $pageTitle; ?></h2>
@@ -21,7 +27,7 @@ require './includes/header.php';
     <form method="POST" action="processing/check-user.php" role="form">
         <p>
             <label for="username">Username: </label>
-            <input id="username" type="text" name="username" required autocomplete="off" />
+            <input id="username" type="text" name="username" required autocomplete="off" value="<?php echo $username; ?>" />
         </p>
         <p>
             <label for="password">Password: </label>
@@ -39,3 +45,4 @@ require './includes/header.php';
 
 <?php
 require './includes/footer.php';
+unset($_SESSION['temp-username']);

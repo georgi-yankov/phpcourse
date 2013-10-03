@@ -51,6 +51,7 @@ function safeInput($string) {
 function validateUsername($username, $messages) {
     if (mb_strlen($username) < 4 || mb_strlen($username) > 12) {
         $_SESSION['messages'] = $messages[6];
+        $_SESSION['temp-username'] = $username;
         header('Location: ../index.php');
         exit();
     }
