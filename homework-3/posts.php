@@ -21,9 +21,15 @@ require 'includes/header.php';
         <?php $categories = getAllCategories($connection); ?>
         <select name="category">
             <option value="all">all categories</option>
-            <?php
+            <?php            
             for ($i = 0; $i < count($categories['category_id']); $i++) {
-                echo '<option value="' . $categories['category_id'][$i] . '">';
+                if (isset($_GET['cat']) && $_GET['cat'] == $categories['category_id'][$i]) {
+                    $selected = 'selected';
+                } else {
+                    $selected = '';
+                }
+                
+                echo '<option value="' . $categories['category_id'][$i] . '" '. $selected .'>';
                 echo $categories['category_name'][$i];
                 echo '</option>';
             }
@@ -35,7 +41,13 @@ require 'includes/header.php';
             <option value="all">all authors</option>
             <?php
             for ($i = 0; $i < count($allAuthors['user_id']); $i++) {
-                echo '<option value="' . $allAuthors['user_id'][$i] . '">';
+                if (isset($_GET['author']) && $_GET['author'] == $allAuthors['user_id'][$i]) {
+                    $selected = 'selected';
+                } else {
+                    $selected = '';
+                }
+                
+                echo '<option value="' . $allAuthors['user_id'][$i] . '" '. $selected .'>';
                 echo $allAuthors['name'][$i];
                 echo '</option>';
             }
@@ -43,8 +55,15 @@ require 'includes/header.php';
         </select>
 
         <select name="sort">
+            <?php
+                if (isset($_GET['sort']) && $_GET['sort'] == 'asc') {
+                    $selected = 'selected';
+                } else {
+                    $selected = '';
+                }
+            ?>
             <option value="desc">latest</option>
-            <option value="asc">oldest</option>
+            <option value="asc" <?php echo $selected; ?>>oldest</option>
         </select>
 
         <input type="submit" value="Filter" name="filter" />
@@ -107,7 +126,7 @@ $query = mysqli_query($connection, $sql);
     $authorName = $row['name'];
     $datePublished = date('d/m/Y', strtotime($row['date_published']));
     $title = $row['title'];
-    $body = $row['body'];
+    $body = nl2br($row['body']);
     ?>
 
     <article class="post">

@@ -26,8 +26,8 @@ if (existLoggedUser()) {
                 <?php } else { ?>
                     <div id="login-form">
                         <form method="POST" action="processing/check-user.php" role="form">
-                            <input type="text" name="username" placeholder="username" value="Stamat" required autocomplete="on" />
-                            <input type="password" name="password" placeholder="password" value="Stamat" required />
+                            <input type="text" name="username" placeholder="username" placeholder="username" required autocomplete="on" />
+                            <input type="password" name="password" placeholder="password" placeholder="password" required />
                             <input type="submit" name="user-action" value="Login" />
                         </form>
                     </div>
