@@ -91,6 +91,7 @@ function validateUsername($username, $messages) {
 
     if (!ctype_alnum(str_replace('_', '', $username))) {
         $_SESSION['messages'] = $messages['usernameNotValidContent'];
+        $_SESSION['temp-username'] = $username;
         header('Location: ../index.php');
         exit();
     }
