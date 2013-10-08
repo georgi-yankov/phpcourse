@@ -35,10 +35,11 @@ if (existLoggedUser()) {
             </header><!-- #header -->
 
             <?php if (existLoggedUser()) { ?>
+                <?php $countAllPosts = countAllPosts($connection); ?>
                 <nav id="main-nav" role="navigation">
                     <ul>
                         <li>
-                            <a <?php checkForCurrentPage($pageTitle, 'Posts') ?> href="posts.php">Posts (<?php echo countAllPosts($connection); ?>)</a>
+                            <a <?php checkForCurrentPage($pageTitle, 'Posts') ?> href="posts.php">Posts (<?php echo $countAllPosts; ?>)</a>
                         </li>
                         <li>
                             <a <?php checkForCurrentPage($pageTitle, 'Add Post') ?> href="add-post.php">Add Post</a>

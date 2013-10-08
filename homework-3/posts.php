@@ -115,6 +115,8 @@ $sql = "
 ";
 
 $query = mysqli_query($connection, $sql);
+
+$countFilteredPosts = $query->num_rows;
 ?>
 
 <?php while ($row = $query->fetch_assoc()) { ?>
@@ -150,11 +152,14 @@ $query = mysqli_query($connection, $sql);
     </article><!-- .post -->
 <?php } ?>
 
-<?php if (countAllPosts($connection) == 0) { ?>
+<?php if ($countAllPosts == 0) { ?>
     <div class="no-posts">
         Currently there are no posts. Be the one to make first post
         <a title="Add Post" href="add-post.php">here</a>.
     </div>
-<?php } ?>
-<?php
+<?php } else if ($countAllPosts > 0 && $countFilteredPosts == 0) { ?>
+    <div class="no-posts">
+        There are no posts for your filter criterion.
+    </div>
+<?php }
 require 'includes/footer.php';
