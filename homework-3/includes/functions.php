@@ -357,3 +357,22 @@ function countAllPosts($connection) {
     
     return $row['COUNT(*)'];
 }
+
+function deleteUser($connection, $id) {
+    $id = mysqli_real_escape_string($connection, $id);
+    
+    // Delete all posts written by this user
+    
+    $sql = "DELETE FROM `messages`
+            WHERE `author_id` = '" . $id . "'";
+    
+    $query = mysqli_query($connection, $sql);
+    
+    // Delete the user
+    
+    $sql = "DELETE FROM `users`
+            WHERE `user_id` = '" . $id . "'
+            LIMIT 1";
+    
+    $query = mysqli_query($connection, $sql);
+}

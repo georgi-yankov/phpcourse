@@ -14,7 +14,7 @@ if ($_SESSION['accessLevel'] < 3) {
     exit();
 }
 
-if (isset($_POST['choose-user'])) {
+if (isset($_POST['show-user']) || isset($_POST['delete-user'])) {
     $id = safeInput($_POST['user']);
 
     if ($id == 'choose user') {
@@ -23,10 +23,24 @@ if (isset($_POST['choose-user'])) {
         exit();
     }
 
-    $level = getAccessLevelByUserId($connection, $id);
-
-    header('Location: ../administration.php?id=' . $id . '&level=' . $level);
-    exit();
+    if ($id == $_SESSION['userId']) {
+        $_SESSION['messages'] = $messages['canNotAdminYourself'];
+        header('Location: ../administration.php');
+        exit();
+    }
+    
+    if (isset($_POST['show-user'])) {
+        $level = getAccessLevelByUserId($connection, $id);
+        header('Location: ../administration.php?id=' . $id . '&level=' . $level);
+        exit();
+    }
+    
+   if (isset($_POST['delete-user'])) {
+        deleteUser($connection, $id);
+        $_SESSION['messages'] = $messages['userDeleted'];
+        header('Location: ../administration.php');
+        exit();
+    }
 }
 
 if (isset($_POST['change-user-access'])) {

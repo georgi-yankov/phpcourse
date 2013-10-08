@@ -35,7 +35,8 @@ require 'includes/header.php';
                 }
                 ?>                
             </select>
-            <input type="submit" name="choose-user" value="Choose" />            
+            <input type="submit" name="show-user" value="Show" /> or
+            <input type="submit" name="delete-user" value="Delete" />           
         </div><!-- #choose-user -->
 
         <?php

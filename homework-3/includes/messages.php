@@ -21,7 +21,9 @@ $messages = array(
     'chooseCategory'           => '<p class="error-msg">Please choose category.</p>',
     'noSuchUserOrAccessLevel'  => '<p class="error-msg">No such user or access level.</p>',
     'noSuchCategory'           => '<p class="error-msg">No such category.</p>',
+    'canNotAdminYourself'      => '<p class="error-msg">You are not allowed to administrate yourself.</p>',
     'successfullUpdate'        => '<p class="success-msg">Successfully updated.</p>',
     'successfullPublish'       => '<p class="success-msg">Successfully published.</p>',
     'successfullDelete'        => '<p class="success-msg">Successfully deleted.</p>',
+    'userDeleted'              => '<p class="success-msg">The user was successfully deleted.</p>',
 );

@@ -234,6 +234,11 @@ p.success-msg {
     font-weight: bold;
 }
 
+#choose-user input[name="delete-user"] {
+    background-color: #f00;
+	color: #fff;
+}
+
 /* Add Post Form */
 
 #add-post-form {
