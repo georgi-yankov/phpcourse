@@ -89,8 +89,8 @@ function validateUsername($username, $messages) {
         exit();
     }
 
-    if (strpos($username, ' ') !== false) {
-        $_SESSION['messages'] = $messages['usernameContainIntervals'];
+    if (!ctype_alnum(str_replace('_', '', $username))) {
+        $_SESSION['messages'] = $messages['usernameNotValidContent'];
         header('Location: ../index.php');
         exit();
     }

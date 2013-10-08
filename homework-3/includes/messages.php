@@ -16,7 +16,7 @@ $messages = array(
     'wrongOldPassword'         => '<p class="error-msg">The old password is wrong.</p>',
     'categoryExist'            => '<p class="error-msg">Already exist category with this name.</p>',
     'usernameExist'            => '<p class="error-msg">Choose different username as this is already used.</p>',
-    'usernameContainIntervals' => '<p class="error-msg">Username can\'t contain intervals.</p>',
+    'usernameNotValidContent'  => '<p class="error-msg">Username can contain only letters, digits and "_"</p>',
     'chooseUser'               => '<p class="error-msg">Please choose user.</p>',
     'chooseCategory'           => '<p class="error-msg">Please choose category.</p>',
     'noSuchUserOrAccessLevel'  => '<p class="error-msg">No such user or access level.</p>',
