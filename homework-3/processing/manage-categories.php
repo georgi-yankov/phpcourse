@@ -31,6 +31,7 @@ if (mb_strlen($categoryName) < 2 || mb_strlen($categoryName) > 16) {
 }
 
 $categoryName = safeInput($categoryName);
+$categoryName = mysqli_real_escape_string($connection, $categoryName);
 
 if (categoryExist($connection, $categoryName)) {
     $_SESSION['messages'] = $messages['categoryExist'];

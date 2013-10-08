@@ -29,6 +29,9 @@ if (trim($username) == '' || trim($password) == '' ||
 $username = safeInput($username);
 $password = safeInput($password);
 
+$username = mysqli_real_escape_string($connection, $username);
+$password = mysqli_real_escape_string($connection, $password);
+
 switch ($userAction) {
     case 'Login':
         $sql = "SELECT * FROM `users`
@@ -57,16 +60,13 @@ switch ($userAction) {
         // Validate data
         validateUsername($username, $messages);
         validatePassword($password, $reenterPassword, $messages);
-        
+
         if (usernameExist($connection, $username)) {
             $_SESSION['messages'] = $messages['usernameExist'];
             $_SESSION['temp-username'] = $username;
             header('Location: ../index.php');
             exit();
         }
-
-        $username = mysqli_real_escape_string($connection, $username);
-        $password = mysqli_real_escape_string($connection, $password);
 
         $sql = "INSERT INTO `users`
                 VALUES (NULL, '" . $username . "', '" . $password . "', DEFAULT)";

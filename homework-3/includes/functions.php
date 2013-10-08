@@ -210,8 +210,6 @@ function categoryExist($connection, $categoryName) {
 }
 
 function insertCategory($connection, $categoryName, $messages) {
-    $categoryName = mysqli_real_escape_string($connection, $categoryName);
-
     $sql = "INSERT INTO `categories`
             VALUES (NULL, '" . $categoryName . "')";
 
@@ -277,6 +275,8 @@ function getAllAccessLevels($connection) {
 }
 
 function getUsernameById($connection, $id) {
+    $id = mysqli_real_escape_string($connection, $id);
+    
     $sql = "SELECT `name`
             FROM `users`
             WHERE `user_id` = '" . $id . "'";
@@ -288,6 +288,8 @@ function getUsernameById($connection, $id) {
 }
 
 function getAccessLevelByUserId($connection, $id) {
+    $id = mysqli_real_escape_string($connection, $id);
+    
     $sql = "SELECT `access_lvl`
             FROM `users`
             WHERE `user_id` = '" . $id . "'";
@@ -299,6 +301,8 @@ function getAccessLevelByUserId($connection, $id) {
 }
 
 function existSuchUserId($connection, $id) {
+    $id = mysqli_real_escape_string($connection, $id);
+    
     $sql = "SELECT `user_id`
             FROM `users`
             WHERE `user_id` = '" . $id . "'";
@@ -313,6 +317,8 @@ function existSuchUserId($connection, $id) {
 }
 
 function existSuchAccessLevelId($connection, $accessLevelId) {
+    $accessLevelId = mysqli_real_escape_string($connection, $accessLevelId);
+    
     $sql = "SELECT `access_lvl`
             FROM `access_levels`
             WHERE `access_lvl` = '" . $accessLevelId . "'";
@@ -327,6 +333,9 @@ function existSuchAccessLevelId($connection, $accessLevelId) {
 }
 
 function changeAccessLevel($connection, $id, $accessLevelId, $messages) {
+    $id = mysqli_real_escape_string($connection, $id);
+    $accessLevelId = mysqli_real_escape_string($connection, $accessLevelId);
+            
     $sql = "UPDATE `users`
             SET `access_lvl` = '" . $accessLevelId . "'
             WHERE `user_id` = '" . $id . "'";

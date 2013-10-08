@@ -15,6 +15,7 @@ if (!isset($_GET['post']) || $_SESSION['accessLevel'] < 2) {
 }
 
 $messageId = (int) $_GET['post'];
+$messageId = mysqli_real_escape_string($connection, $messageId);
 
 $sql = "DELETE FROM `messages`
         WHERE `message_id` = '" . $messageId . "'

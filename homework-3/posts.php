@@ -21,15 +21,15 @@ require 'includes/header.php';
         <?php $categories = getAllCategories($connection); ?>
         <select name="category">
             <option value="all">all categories</option>
-            <?php            
+            <?php
             for ($i = 0; $i < count($categories['category_id']); $i++) {
                 if (isset($_GET['cat']) && $_GET['cat'] == $categories['category_id'][$i]) {
                     $selected = 'selected';
                 } else {
                     $selected = '';
                 }
-                
-                echo '<option value="' . $categories['category_id'][$i] . '" '. $selected .'>';
+
+                echo '<option value="' . $categories['category_id'][$i] . '" ' . $selected . '>';
                 echo $categories['category_name'][$i];
                 echo '</option>';
             }
@@ -46,8 +46,8 @@ require 'includes/header.php';
                 } else {
                     $selected = '';
                 }
-                
-                echo '<option value="' . $allAuthors['user_id'][$i] . '" '. $selected .'>';
+
+                echo '<option value="' . $allAuthors['user_id'][$i] . '" ' . $selected . '>';
                 echo $allAuthors['name'][$i];
                 echo '</option>';
             }
@@ -56,11 +56,11 @@ require 'includes/header.php';
 
         <select name="sort">
             <?php
-                if (isset($_GET['sort']) && $_GET['sort'] == 'asc') {
-                    $selected = 'selected';
-                } else {
-                    $selected = '';
-                }
+            if (isset($_GET['sort']) && $_GET['sort'] == 'asc') {
+                $selected = 'selected';
+            } else {
+                $selected = '';
+            }
             ?>
             <option value="desc">latest</option>
             <option value="asc" <?php echo $selected; ?>>oldest</option>
@@ -72,13 +72,13 @@ require 'includes/header.php';
 
 <?php
 if (isset($_GET['cat']) && $_GET['cat'] != '') {
-    $categoryFilter = "msg.category_id = '" . (int) $_GET['cat'] . "'";
+    $categoryFilter = "msg.category_id = '" . (int) mysqli_real_escape_string($connection, $_GET['cat']) . "'";
 } else {
     $categoryFilter = "";
 }
 
 if (isset($_GET['author']) && $_GET['author'] != '') {
-    $authorFilter = "msg.author_id = '" . (int) $_GET['author'] . "'";
+    $authorFilter = "msg.author_id = '" . (int) mysqli_real_escape_string($connection, $_GET['author']) . "'";
 } else {
     $authorFilter = "";
 }
