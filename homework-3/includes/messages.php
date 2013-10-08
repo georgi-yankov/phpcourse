@@ -23,5 +23,5 @@ $messages = array(
     'noSuchCategory'           => '<p class="error-msg">No such category.</p>',
     'successfullUpdate'        => '<p class="success-msg">Successfully updated.</p>',
     'successfullPublish'       => '<p class="success-msg">Successfully published.</p>',
-    'successfullDelete'       => '<p class="success-msg">Successfully deleted.</p>'
+    'successfullDelete'        => '<p class="success-msg">Successfully deleted.</p>',
 );
