@@ -39,7 +39,7 @@ if (isset($_SESSION['temp-title']) &&
         <p>
             <label>Category:</label>
             <?php $categories = getAllCategories($connection); ?>
-            <select name="category">
+            <select name="category" required>
                 <option value=""></option>
                 <?php
                 for ($i = 0; $i < count($categories['category_id']); $i++) {
