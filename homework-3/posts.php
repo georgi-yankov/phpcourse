@@ -190,7 +190,7 @@ $countFilteredPostsWithoutLimit = $queryWithoutLimit->num_rows;
     <div class="no-posts">
         There are no posts for your filter criterion.
     </div>
-<?php } else {
+<?php } else if ($countFilteredPostsWithoutLimit > POSTS_PER_PAGE) {
      require 'includes/pagination.php';
 }
 require 'includes/footer.php';
