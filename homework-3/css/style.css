@@ -325,6 +325,46 @@ p.success-msg {
 }
 
 /*************************************************
+    PAGINATION
+*************************************************/
+
+#pagination {
+	text-align: center;
+}
+
+#pagination li {	
+	display: inline-block;
+	margin-right: 2px;
+}
+
+#pagination a {
+	border: 1px solid #808080;
+	color: #808080;
+	display: block;
+	padding: 3px 5px;
+	text-decoration: none;
+}
+
+#pagination a:hover {
+	background-color: #808080;
+	color: #fff;
+}
+
+#pagination a.current-page {
+	background-color: #808080;
+	color: #fff;
+}
+
+#pagination a.pagination-arrow {
+	background-color: #e8e8e8;
+}
+
+#pagination a.pagination-arrow:hover {
+	background-color: #808080;
+	color: #fff;
+}
+
+/*************************************************
     FOOTER
 *************************************************/
 

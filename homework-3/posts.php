@@ -71,22 +71,28 @@ require 'includes/header.php';
 </div><!-- #filter-form -->
 
 <?php
+$filterForPagination = '';
+
 if (isset($_GET['cat']) && $_GET['cat'] != '') {
     $categoryFilter = "msg.category_id = '" . (int) mysqli_real_escape_string($connection, $_GET['cat']) . "'";
+    $filterForPagination .= '&cat=' . $_GET['cat'];
 } else {
     $categoryFilter = "";
 }
 
 if (isset($_GET['author']) && $_GET['author'] != '') {
     $authorFilter = "msg.author_id = '" . (int) mysqli_real_escape_string($connection, $_GET['author']) . "'";
+    $filterForPagination .= '&author=' . $_GET['author'];
 } else {
     $authorFilter = "";
 }
 
 if ((isset($_GET['sort']) && $_GET['sort'] == 'asc')) {
     $orderBy = "ORDER BY msg.date_published ASC";
+    $filterForPagination .= '&sort=' . $_GET['sort'];
 } else if (isset($_GET['sort']) && $_GET['sort'] == 'desc') {
     $orderBy = "ORDER BY msg.date_published DESC";
+    $filterForPagination .= '&sort=' . $_GET['sort'];
 } else {
     $orderBy = "ORDER BY msg.date_published DESC";
 }
@@ -101,6 +107,14 @@ if ($categoryFilter != '' && $authorFilter == '') {
     $finalFilter = "WHERE " . $authorFilter;
 }
 
+if (isset($_GET['page'])) {
+    $page = (int) $_GET['page'];
+} else {
+    $page = 1;
+}
+
+$ofset = ($page * POSTS_PER_PAGE) - POSTS_PER_PAGE;
+
 $sql = "
     SELECT *
     FROM `messages` AS msg
@@ -112,11 +126,26 @@ $sql = "
     ON msg.author_id = usr.user_id
     " . $finalFilter . "
     " . $orderBy . "
+    LIMIT " . $ofset . ", " . POSTS_PER_PAGE . "
 ";
 
 $query = mysqli_query($connection, $sql);
-
 $countFilteredPosts = $query->num_rows;
+
+$sqlWithoutLimit = "
+    SELECT *
+    FROM `messages` AS msg
+
+    LEFT JOIN `categories` AS cat
+    ON msg.category_id = cat.category_id
+
+    LEFT JOIN `users` AS usr
+    ON msg.author_id = usr.user_id
+    " . $finalFilter . "
+";
+
+$queryWithoutLimit = mysqli_query($connection, $sqlWithoutLimit);
+$countFilteredPostsWithoutLimit = $queryWithoutLimit->num_rows;
 ?>
 
 <?php while ($row = $query->fetch_assoc()) { ?>
@@ -161,5 +190,7 @@ $countFilteredPosts = $query->num_rows;
     <div class="no-posts">
         There are no posts for your filter criterion.
     </div>
-<?php }
+<?php } else {
+     require 'includes/pagination.php';
+}
 require 'includes/footer.php';
