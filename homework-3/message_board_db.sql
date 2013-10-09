@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 07, 2013 at 09:47 PM
+-- Generation Time: Oct 09, 2013 at 01:03 PM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `message_board_db`
 --
+CREATE DATABASE `message_board_db` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `message_board_db`;
 
 -- --------------------------------------------------------
 
@@ -78,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `title` varchar(50) NOT NULL,
   `body` varchar(250) NOT NULL,
   PRIMARY KEY (`message_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=30 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=31 ;
 
 --
 -- Dumping data for table `messages`
@@ -103,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `access_lvl` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `users`
