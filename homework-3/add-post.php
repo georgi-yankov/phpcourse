@@ -67,4 +67,8 @@ if (isset($_SESSION['temp-title']) &&
 </div><!-- #add-post-form -->
 
 <?php
+unset($_SESSION['temp-title']);
+unset($_SESSION['temp-categoryId']);
+unset($_SESSION['temp-message']);
+
 require 'includes/footer.php';

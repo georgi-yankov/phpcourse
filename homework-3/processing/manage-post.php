@@ -55,9 +55,5 @@ $sql = "INSERT INTO `messages`
 $query = mysqli_query($connection, $sql);
 $_SESSION['messages'] = $messages['successfullPublish'];
 
-unset($_SESSION['temp-title']);
-unset($_SESSION['temp-categoryId']);
-unset($_SESSION['temp-message']);
-
 header('Location: ../add-post.php');
 exit();
