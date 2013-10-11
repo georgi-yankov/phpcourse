@@ -24,8 +24,8 @@ $allAuthorsData = getAllAuthors($connection, $messages);
     <form method="POST" action="processing/manage-add.php" role="form">
         <p>
             <label for="book-title">Book Title: </label>           
-            <input type="text" name="book-title" id="book-title" required
-                   value="<?php echo $bookTitle; ?>" />
+            <input type="text" name="book-title" id="book-title" required autofocus
+                   autocomplete="off" value="<?php echo $bookTitle; ?>" />
         </p>
         <p>
             <label>Choose Authors: </label>

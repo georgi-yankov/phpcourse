@@ -100,6 +100,8 @@ function getAllAuthors($connection, $messages) {
         exit;
     }
     
+    $allAuthorsData = array();
+    
     while ($row = $query->fetch_assoc()) {
         $allAuthorsData['authorId'][] = $row['author_id'];
         $allAuthorsData['authorName'][] = $row['author_name'];

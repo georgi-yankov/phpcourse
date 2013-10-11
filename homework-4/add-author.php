@@ -10,6 +10,8 @@ if (isset($_SESSION['tempAuthorName'])) {
 } else {
     $authorName = '';
 }
+
+$allAuthorsData = getAllAuthors($connection, $messages);
 ?>
 
 <h2>Add New Author</h2>
@@ -17,12 +19,13 @@ if (isset($_SESSION['tempAuthorName'])) {
 <div id="add-author-form">
     <form method="POST" action="processing/manage-add.php" role="form">
         <label for="author-name">Author: </label>           
-        <input type="text" name="author-name" id="author-name" required
+        <input type="text" name="author-name" id="author-name" required autofocus
                value="<?php echo $authorName; ?>" />
         <input type="submit" name="add-author" value="Add" />
     </form>
 </div><!-- #add-author-form -->
 
+<?php if (!empty($allAuthorsData)) { ?>
 <table>
     <thead>
         <tr>
@@ -32,11 +35,7 @@ if (isset($_SESSION['tempAuthorName'])) {
     </thead>
 
     <tbody>
-        <?php
-        $allAuthorsData = getAllAuthors($connection, $messages);
-
-        for ($i = 0; $i < count($allAuthorsData['authorId']); $i++) {
-        ?>
+        <?php for ($i = 0; $i < count($allAuthorsData['authorId']); $i++) { ?>
             <tr>
                 <td><?php echo ($i + 1); ?>.</td>
                 <td>
@@ -49,6 +48,7 @@ if (isset($_SESSION['tempAuthorName'])) {
         <?php } ?>
     </tbody>
 </table>
+<?php } ?>
 
 <?php
 if (isset($_SESSION['tempAuthorName'])) {

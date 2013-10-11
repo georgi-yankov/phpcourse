@@ -14,7 +14,7 @@ require 'includes/functions.php';
     </head>
     <body>
         <div id="wrapper">
-            <header id="header">
+            <header id="header" role="banner">
                 <h1 id="logo">
                     <a href="index.php"><?php echo APPLICATION_NAME ?></a>
                 </h1>

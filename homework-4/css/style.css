@@ -203,7 +203,7 @@ a:hover {
 }
 
 #content table thead th {    
-    padding: 5px;
+    padding: 10px 5px;
     text-align: left;
     width: 290px;
 }
@@ -217,16 +217,20 @@ a:hover {
 }
 
 #content table tbody tr:nth-child(even) {
-    background-color: #f0f0f0;
+    background-color: #e0e0e0;
 }
 
 #content table tbody td {    
-    padding: 5px;
+    padding: 10px 5px;
 }
 
 #content table tr th:first-child,
 #content table tr td:first-child {    
     text-align: right;
+}
+
+#no-books p {    
+    padding-bottom: 5px;
 }
 
 /*************************************************
