@@ -45,7 +45,7 @@ select {
 }
 
 a {
-	color: #600;
+	color: #800;
 	text-decoration: none;
 }
 
@@ -169,6 +169,17 @@ a:hover {
 
 #content input[type="submit"] {
 
+}
+
+/* FILTER */
+
+#filter {
+	margin-bottom: 20px;
+}
+
+#filter select {
+	padding-top: 2px;
+	padding-bottom: 2px;
 }
 
 /* ADD AUTHOR FORM */

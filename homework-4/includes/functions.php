@@ -88,10 +88,32 @@ function authorExistById($connection, $authorId, $messages) {
     }
 }
 
+function authorHasBooks($connection, $authorId, $messages) {
+    $sql = "SELECT `author_id`
+            FROM `books_authors`
+            WHERE `author_id` = $authorId";
+    
+    $query = mysqli_query($connection, $sql);
+    
+    if (!$query) {
+        $_SESSION['messages'] = $messages['wrongQueryExecution'];
+        header('Location: ../index.php');
+        exit;
+    }
+    
+    $result = $query->num_rows;
+
+    if ($result > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 function getAllAuthors($connection, $messages) {
     $sql = "SELECT *
             FROM `authors`";
-    
+
     $query = mysqli_query($connection, $sql);
 
     if (!$query) {
@@ -99,14 +121,14 @@ function getAllAuthors($connection, $messages) {
         header('Location: ../add-author.php');
         exit;
     }
-    
+
     $allAuthorsData = array();
-    
+
     while ($row = $query->fetch_assoc()) {
         $allAuthorsData['authorId'][] = $row['author_id'];
         $allAuthorsData['authorName'][] = $row['author_name'];
     }
-    
+
     return $allAuthorsData;
 }
 
@@ -138,24 +160,24 @@ function insertBook($connection, $bookTitle, $authors, $messages) {
         header('Location: ../add-book.php');
         exit;
     }
-    
+
     $lastBookInsertedId = mysqli_insert_id($connection);
-        
+
     foreach ($authors as $value) {
         $values[] = "($lastBookInsertedId, $value)";
     }
 
     $sql = "INSERT INTO `books_authors`
-            VALUES " . implode(',', $values) ."";
+            VALUES " . implode(',', $values) . "";
 
     $query = mysqli_query($connection, $sql);
-    
+
     if (!$query) {
         $_SESSION['messages'] = $messages['wrongQueryExecution'];
         header('Location: ../add-book.php');
         exit;
     }
-    
+
     $_SESSION['messages'] = $messages['bookInserted'];
     header('Location: ../add-book.php');
     exit;
