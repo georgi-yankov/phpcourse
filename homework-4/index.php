@@ -21,7 +21,7 @@ if (isset($_GET['author']) && $_GET['author'] != 'all-authors') {
         exit;
     }
     
-    $filterByAuthorId = "WHERE bks_aut.author_id = $authorId";
+    $filterByAuthorId = "WHERE authors.author_id = $authorId";
 } else {
     $filterByAuthorId = '';
 }
@@ -35,25 +35,31 @@ if (isset($_GET['sort']) && $_GET['sort'] == 'DESC') {
 }
 
 $sql = "
-    SELECT *
-    FROM `books` AS bks
+    SELECT books.book_id, books.book_title, authors.author_id, authors.author_name
+    FROM books
     
-    LEFT JOIN `books_authors` AS bks_aut
-    ON bks.book_id = bks_aut.book_id
+    LEFT JOIN books_authors
+    ON books.book_id = books_authors.book_id
     
-    LEFT JOIN `authors` AS aut
-    ON bks_aut.author_id = aut.author_id
+    LEFT JOIN authors
+    ON authors.author_id = books_authors.author_id
     
-    $filterByAuthorId
+    WHERE books.book_title in (
+        SELECT books.book_title
+        FROM books
+        LEFT JOIN books_authors ON books.book_id = books_authors.book_id
+        LEFT JOIN authors ON authors.author_id = books_authors.author_id
+        $filterByAuthorId
+    )
         
-    ORDER BY bks.book_title $currentSort
+    ORDER BY books.book_title $currentSort
 ";
 
 $query = mysqli_query($connection, $sql);
 
 if (!$query) {
     $_SESSION['messages'] = $messages['wrongQueryExecution'];
-    header('Location: ../index.php');
+    header('Location: index.php');
     exit;
 }
 
