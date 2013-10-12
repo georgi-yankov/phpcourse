@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 require 'includes/config.php';
 require 'includes/connection.php';
 require 'includes/messages.php';
