@@ -10,5 +10,5 @@ $messages = array(
     'wrongQueryExecution'  => '<p class="user-msg error-msg">Your action could not be executed.</p>',
     'emptySearchField'     => '<p class="user-msg error-msg">Empty search field.</p>',
     'authorInserted'       => '<p class="user-msg success-msg">Author successfully inserted.</p>',
-    'bookInserted'         => '<p class="user-msg success-msg">Author successfully inserted.</p>',
+    'bookInserted'         => '<p class="user-msg success-msg">Book successfully inserted.</p>',
 );
