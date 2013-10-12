@@ -11,7 +11,15 @@ if (isset($_SESSION['tempAuthorName'])) {
     $authorName = '';
 }
 
-$allAuthorsData = getAllAuthors($connection, $messages);
+if (isset($_GET['sort']) && $_GET['sort'] == 'DESC') {
+    $currentSort = 'DESC';
+    $nextSort = 'ASC';
+} else {
+    $currentSort = 'ASC';
+    $nextSort = 'DESC';
+}
+
+$allAuthorsData = getAllAuthors($connection, $messages, $currentSort);
 ?>
 
 <h2>Add New Author</h2>
@@ -30,7 +38,12 @@ $allAuthorsData = getAllAuthors($connection, $messages);
     <thead>
         <tr>
             <th>№</th>
-            <th>Authors</th>
+            <th>
+                <a href="add-author.php?sort=<?php echo $nextSort; ?>"
+                   title="Sort authors in <?php echo $nextSort; ?> order">
+                    Authors
+                </a>
+            </th>
         </tr>
     </thead>
 

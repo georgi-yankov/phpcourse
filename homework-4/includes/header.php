@@ -20,8 +20,8 @@ require 'includes/functions.php';
                 </h1>
                 
                 <div id="search-box">
-                    <form method="" action="" role="form">
-                        <input type="text" name="book-title" placeholder="book title" />
+                    <form method="POST" action="search.php" role="form">
+                        <input type="text" name="book-title" placeholder="book title" required />
                         <input type="submit" name="search" value="Search" />
                     </form>
                 </div><!-- #search-box -->

@@ -21,6 +21,11 @@ h2 {
     padding: 15px 0 5px;
 }
 
+h2 span {
+    color: #800;
+	font-style: italic;
+}
+
 input {
 	background-color: #fff;
 	border: none;
@@ -231,7 +236,8 @@ a:hover {
     background-color: #e0e0e0;
 }
 
-#content table tbody td {    
+#content table tbody td {
+	line-height: 18px;
     padding: 10px 5px;
 }
 

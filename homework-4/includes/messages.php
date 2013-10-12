@@ -8,6 +8,7 @@ $messages = array(
     'authorNotExist'       => '<p class="user-msg error-msg">Such author does not exist.</p>',
     'authorHasNotBooks'    => '<p class="user-msg error-msg">The author you chose is not associated with any book yet.</p>',
     'wrongQueryExecution'  => '<p class="user-msg error-msg">Your action could not be executed.</p>',
+    'emptySearchField'     => '<p class="user-msg error-msg">Empty search field.</p>',
     'authorInserted'       => '<p class="user-msg success-msg">Author successfully inserted.</p>',
     'bookInserted'         => '<p class="user-msg success-msg">Author successfully inserted.</p>',
 );

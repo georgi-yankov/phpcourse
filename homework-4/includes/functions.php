@@ -110,9 +110,10 @@ function authorHasBooks($connection, $authorId, $messages) {
     }
 }
 
-function getAllAuthors($connection, $messages) {
+function getAllAuthors($connection, $messages, $currentSort = 'ASC') {
     $sql = "SELECT *
-            FROM `authors`";
+            FROM `authors`
+            ORDER BY `author_name` $currentSort";
 
     $query = mysqli_query($connection, $sql);
 
@@ -181,4 +182,27 @@ function insertBook($connection, $bookTitle, $authors, $messages) {
     $_SESSION['messages'] = $messages['bookInserted'];
     header('Location: ../add-book.php');
     exit;
+}
+
+function existSearchResults($connection, $bookTitle, $messages) {
+    $sql = "SELECT `book_title`
+            FROM `books`
+            WHERE `book_title`
+            LIKE '%$bookTitle%'";
+
+    $query = mysqli_query($connection, $sql);
+
+    if (!$query) {
+        $_SESSION['messages'] = $messages['wrongQueryExecution'];
+        header('Location: index.php');
+        exit;
+    }
+    
+    $result = $query->num_rows;
+
+    if ($result > 0) {
+        return true;
+    } else {
+        return false;
+    }
 }
