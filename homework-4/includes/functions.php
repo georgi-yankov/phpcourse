@@ -88,10 +88,32 @@ function authorExistById($connection, $authorId, $messages) {
     }
 }
 
-function bookExist($connection, $bookTitle, $messages) {
+function bookExistByName($connection, $bookTitle, $messages) {
     $sql = "SELECT `book_title`
             FROM `books`
             WHERE `book_title` = '$bookTitle'";
+
+    $query = mysqli_query($connection, $sql);
+
+    if (!$query) {
+        $_SESSION['messages'] = $messages['wrongQueryExecution'];
+        header('Location: index.php');
+        exit;
+    }
+    
+    $result = $query->num_rows;
+
+    if ($result > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function bookExistById($connection, $bookId, $messages) {
+    $sql = "SELECT `book_id`
+            FROM `books`
+            WHERE `book_id` = '$bookId'";
 
     $query = mysqli_query($connection, $sql);
 
@@ -203,6 +225,35 @@ function insertBook($connection, $bookTitle, $authors, $messages) {
 
     $_SESSION['messages'] = $messages['bookInserted'];
     header('Location: ../add-book.php');
+    exit;
+}
+
+function deleteBook($connection, $bookId, $messages) {
+    $sql = "DELETE FROM `books`
+            WHERE `book_id` = '$bookId'
+            LIMIT 1";
+
+    $query = mysqli_query($connection, $sql);
+
+    if (!$query) {
+        $_SESSION['messages'] = $messages['wrongQueryExecution'];
+        header('Location: ../index.php');
+        exit;
+    }
+    
+    $sql = "DELETE FROM `books_authors`
+            WHERE `book_id` = '$bookId'";
+
+    $query = mysqli_query($connection, $sql);
+
+    if (!$query) {
+        $_SESSION['messages'] = $messages['wrongQueryExecution'];
+        header('Location: ../index.php');
+        exit;
+    }
+    
+    $_SESSION['messages'] = $messages['bookDeleted'];
+    header('Location: ../index.php');
     exit;
 }
 

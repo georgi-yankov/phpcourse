@@ -7,9 +7,11 @@ $messages = array(
     'authorExist'          => '<p class="user-msg error-msg">The author already exist.</p>',
     'authorNotExist'       => '<p class="user-msg error-msg">Such author does not exist.</p>',
     'bookExist'            => '<p class="user-msg error-msg">The book already exist.</p>',
+    'bookNotExist'         => '<p class="user-msg error-msg">Such book does not exist.</p>',
     'authorHasNotBooks'    => '<p class="user-msg error-msg">The author you chose is not associated with any book yet.</p>',
     'wrongQueryExecution'  => '<p class="user-msg error-msg">Your action could not be executed.</p>',
     'emptySearchField'     => '<p class="user-msg error-msg">Empty search field.</p>',
     'authorInserted'       => '<p class="user-msg success-msg">Author successfully inserted.</p>',
     'bookInserted'         => '<p class="user-msg success-msg">Book successfully inserted.</p>',
+    'bookDeleted'          => '<p class="user-msg success-msg">Book successfully deleted.</p>',
 );

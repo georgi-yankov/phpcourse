@@ -63,7 +63,7 @@ if (isset($_POST['add-book'])) {
     
     $bookTitle = mysqli_real_escape_string($connection, $bookTitle);
     
-    if (bookExist($connection, $bookTitle, $messages)) {
+    if (bookExistByName($connection, $bookTitle, $messages)) {
             $_SESSION['tempBookTitle'] = $bookTitle;
             $_SESSION['tempAuthors'] = $authors;
             $_SESSION['messages'] = $messages['bookExist'];

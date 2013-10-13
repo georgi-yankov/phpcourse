@@ -71,6 +71,11 @@ a:hover {
     white-space: nowrap;
 }
 
+.delete {
+	color: #f00;
+	font-size: 12px;
+}
+
 /*************************************************
     CLEAR FLOATS
 *************************************************/
@@ -221,15 +226,20 @@ a:hover {
 #content table thead th {    
     padding: 10px 5px;
     text-align: left;
-    width: 290px;
+    width: 278px;
 }
 
 #content table thead th:first-child {  
     width: 30px;
 }
 
-#content table thead th:last-child {  
-    width: 330px;
+#content table thead th:last-child {
+	text-align: center;
+    width: 55px;
+}
+
+#content table tbody td:last-child {
+	text-align: center;
 }
 
 #content table tbody tr:nth-child(even) {
@@ -248,6 +258,10 @@ a:hover {
 
 #no-books p {    
     padding-bottom: 5px;
+}
+
+#content #add-author th:last-child {
+	width: 278px;
 }
 
 /*************************************************

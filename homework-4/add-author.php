@@ -33,7 +33,7 @@ $allAuthorsData = getAllAuthors($connection, $messages, $currentSort);
 </div><!-- #add-author-form -->
 
 <?php if (!empty($allAuthorsData)) { ?>
-<table>
+<table id="add-author">
     <thead>
         <tr>
             <th>№</th>

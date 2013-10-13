@@ -120,12 +120,13 @@ while ($row = $query->fetch_assoc()) {
                     </a>
                 </th>
                 <th>Authors</th>
+                <th>Actions</th>
             </tr>
         </thead>
 
         <tbody>
             <?php $booksCounter = 0; ?>
-            <?php foreach ($allInfo as $key => $value) { // $key is not used yet ?>
+            <?php foreach ($allInfo as $key => $value) { ?>
                 <?php $booksCounter++; ?>
                 <tr>
                     <td><?php echo $booksCounter; ?>.</td>
@@ -144,6 +145,9 @@ while ($row = $query->fetch_assoc()) {
                         unset($authorsLinks);
                         unset($authorsLinksResult);                    
                         ?>
+                    </td>
+                    <td>
+                        <a class="delete" href="processing/manage-delete.php?book=<?php echo $key; ?>" title="Delete book" onclick="return confirm('Are you sure you want to delete this book?');">delete</a>
                     </td>
                 </tr>
             <?php } ?>
