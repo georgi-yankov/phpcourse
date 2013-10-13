@@ -6,6 +6,7 @@ $messages = array(
     'notValidAuthorId'     => '<p class="user-msg error-msg">Not valid author id.</p>',
     'authorExist'          => '<p class="user-msg error-msg">The author already exist.</p>',
     'authorNotExist'       => '<p class="user-msg error-msg">Such author does not exist.</p>',
+    'bookExist'            => '<p class="user-msg error-msg">The book already exist.</p>',
     'authorHasNotBooks'    => '<p class="user-msg error-msg">The author you chose is not associated with any book yet.</p>',
     'wrongQueryExecution'  => '<p class="user-msg error-msg">Your action could not be executed.</p>',
     'emptySearchField'     => '<p class="user-msg error-msg">Empty search field.</p>',

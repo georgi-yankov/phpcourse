@@ -88,6 +88,28 @@ function authorExistById($connection, $authorId, $messages) {
     }
 }
 
+function bookExist($connection, $bookTitle, $messages) {
+    $sql = "SELECT `book_title`
+            FROM `books`
+            WHERE `book_title` = '$bookTitle'";
+
+    $query = mysqli_query($connection, $sql);
+
+    if (!$query) {
+        $_SESSION['messages'] = $messages['wrongQueryExecution'];
+        header('Location: index.php');
+        exit;
+    }
+    
+    $result = $query->num_rows;
+
+    if ($result > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 function authorHasBooks($connection, $authorId, $messages) {
     $sql = "SELECT `author_id`
             FROM `books_authors`

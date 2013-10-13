@@ -63,5 +63,13 @@ if (isset($_POST['add-book'])) {
     
     $bookTitle = mysqli_real_escape_string($connection, $bookTitle);
     
+    if (bookExist($connection, $bookTitle, $messages)) {
+            $_SESSION['tempBookTitle'] = $bookTitle;
+            $_SESSION['tempAuthors'] = $authors;
+            $_SESSION['messages'] = $messages['bookExist'];
+            header('Location: ../add-book.php');
+            exit;
+    }
+    
     insertBook($connection, $bookTitle, $authors, $messages);
 }
