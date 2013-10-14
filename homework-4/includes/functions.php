@@ -113,19 +113,21 @@ function bookExistByName($connection, $bookTitle, $messages) {
 function bookExistById($connection, $bookId, $messages) {
     $sql = "SELECT `book_id`
             FROM `books`
-            WHERE `book_id` = '$bookId'";
+            WHERE `book_id` = ?";
 
-    $query = mysqli_query($connection, $sql);
+    $stmt = mysqli_prepare($connection, $sql);
 
-    if (!$query) {
+    if (!$stmt) {
         $_SESSION['messages'] = $messages['wrongQueryExecution'];
-        header('Location: index.php');
+        header('Location: ../index.php');
         exit;
     }
 
-    $result = $query->num_rows;
+    mysqli_stmt_bind_param($stmt, 'i', $bookId);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_store_result($stmt);
 
-    if ($result > 0) {
+    if (mysqli_stmt_num_rows($stmt) > 0) {
         return true;
     } else {
         return false;
