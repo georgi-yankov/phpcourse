@@ -100,7 +100,7 @@ function bookExistByName($connection, $bookTitle, $messages) {
         header('Location: index.php');
         exit;
     }
-    
+
     $result = $query->num_rows;
 
     if ($result > 0) {
@@ -122,7 +122,7 @@ function bookExistById($connection, $bookId, $messages) {
         header('Location: index.php');
         exit;
     }
-    
+
     $result = $query->num_rows;
 
     if ($result > 0) {
@@ -135,19 +135,21 @@ function bookExistById($connection, $bookId, $messages) {
 function authorHasBooks($connection, $authorId, $messages) {
     $sql = "SELECT `author_id`
             FROM `books_authors`
-            WHERE `author_id` = $authorId";
-    
-    $query = mysqli_query($connection, $sql);
-    
-    if (!$query) {
+            WHERE `author_id` = ?";
+
+    $stmt = mysqli_prepare($connection, $sql);
+
+    if (!$stmt) {
         $_SESSION['messages'] = $messages['wrongQueryExecution'];
         header('Location: ../index.php');
         exit;
     }
-    
-    $result = $query->num_rows;
 
-    if ($result > 0) {
+    mysqli_stmt_bind_param($stmt, 'i', $authorId);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_store_result($stmt);
+
+    if (mysqli_stmt_num_rows($stmt) > 0) {
         return true;
     } else {
         return false;
@@ -240,7 +242,7 @@ function deleteBook($connection, $bookId, $messages) {
         header('Location: ../index.php');
         exit;
     }
-    
+
     $sql = "DELETE FROM `books_authors`
             WHERE `book_id` = '$bookId'";
 
@@ -251,7 +253,7 @@ function deleteBook($connection, $bookId, $messages) {
         header('Location: ../index.php');
         exit;
     }
-    
+
     $_SESSION['messages'] = $messages['bookDeleted'];
     header('Location: ../index.php');
     exit;
@@ -270,7 +272,7 @@ function existSearchResults($connection, $bookTitle, $messages) {
         header('Location: index.php');
         exit;
     }
-    
+
     $result = $query->num_rows;
 
     if ($result > 0) {
