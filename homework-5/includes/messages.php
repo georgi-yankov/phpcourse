@@ -1,0 +1,26 @@
+<?php
+
+$messages = array(
+    'notValidAuthorName'       => '<p class="user-msg error-msg">The author name can have from 3 to 50 characters.</p>',
+    'notValidBookTitle'        => '<p class="user-msg error-msg">The book title can have from 3 to 100 characters.</p>',
+    'notValidAuthorId'         => '<p class="user-msg error-msg">Not valid author id.</p>',
+    'notValidComment'          => '<p class="user-msg error-msg">The comment can have from 3 to 500 characters.</p>',    
+    'passwdNotValidLength'     => '<p class="user-msg error-msg">Passwords must be between 6 and 12 characters.</p>',
+    'passwordsNotMatch'        => '<p class="user-msg error-msg">Passwords don\'t match.</p>',    
+    'authorExist'              => '<p class="user-msg error-msg">The author already exist.</p>',
+    'authorNotExist'           => '<p class="user-msg error-msg">Such author does not exist.</p>',
+    'bookExist'                => '<p class="user-msg error-msg">The book already exist.</p>',
+    'bookNotExist'             => '<p class="user-msg error-msg">Such book does not exist.</p>',
+    'authorHasNotBooks'        => '<p class="user-msg error-msg">The author you chose is not associated with any book yet.</p>',
+    'wrongQueryExecution'      => '<p class="user-msg error-msg">Your action could not be executed.</p>',
+    'emptySearchField'         => '<p class="user-msg error-msg">Empty search field.</p>',
+    'wrongUsernameOrPass'      => '<p class="user-msg error-msg">Wrong username or password.</p>',
+    'wrongFormSubmission'      => '<p class="user-msg error-msg">Wrong form submission.</p>',
+    'usernameExist'            => '<p class="user-msg error-msg">Choose different username as this is already used.</p>',
+    'usernameNotValidLength'   => '<p class="user-msg error-msg">Username must be between 5 and 16 characters.</p>',
+    'usernameNotValidContent'  => '<p class="user-msg error-msg">Username can contain only English letters, digits and "_"</p>',
+    'authorInserted'           => '<p class="user-msg success-msg">Author successfully inserted.</p>',
+    'bookInserted'             => '<p class="user-msg success-msg">Book successfully inserted.</p>',
+    'commentInserted'          => '<p class="user-msg success-msg">Comment successfully inserted.</p>',
+    'bookDeleted'              => '<p class="user-msg success-msg">Book successfully deleted.</p>',
+);
