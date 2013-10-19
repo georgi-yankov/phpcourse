@@ -42,7 +42,7 @@ $bookInfo = getBookInfo($connection, $bookId, $messages);
     </div><!-- .book-info-content -->
 </div>
 
-<?php if (existLoggedUser()) { ?>
+<?php if ($existLoggedUser) { ?>
     <div id="add-comment">
         <form method="POST" action="processing/manage-add.php" role="form">
             <p>

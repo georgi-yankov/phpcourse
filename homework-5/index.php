@@ -106,7 +106,7 @@ if (isset($authorId)) {
         </form>
     </div><!-- #filter -->
 
-    <table>
+    <table <?php if(isset($_SESSION['accessLevel']) && $_SESSION['accessLevel'] > 1) echo 'class="high-permition"' ?>>
         <thead>
             <tr>
                 <th>№</th>

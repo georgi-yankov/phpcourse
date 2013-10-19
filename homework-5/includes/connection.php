@@ -4,7 +4,7 @@
 define('SQL_HOST', 'XXXXXXXX');
 define('SQL_USER', 'XXXXXXXX');
 define('SQL_PASS', 'XXXXXXXX');
-define('SQL_DB', 'books');
+define('SQL_DB', 'XXXXXXXX');
 
 $connection = mysqli_connect(SQL_HOST, SQL_USER, SQL_PASS, SQL_DB);
 

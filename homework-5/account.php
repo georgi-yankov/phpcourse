@@ -3,7 +3,7 @@ $pageTitle = 'Account';
 
 require 'includes/header.php';
 
-if (!existLoggedUser()) {
+if (!$existLoggedUser) {
     header('Location: index.php');
     exit;
 }
@@ -22,6 +22,7 @@ if (!existLoggedUser()) {
             <input id="reenter-password" type="password" name="new-password" required />
         </p>
         <p>
+            <label></label>
             <input type="submit" name="change-password" value="Change" />
         </p>
     </form>

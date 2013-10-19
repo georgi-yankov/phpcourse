@@ -158,7 +158,7 @@ a:hover {
     text-align: right;
     width: 700px;
 }
-  
+
 /*************************************************
     MAIN NAVIGATION
 *************************************************/
@@ -269,6 +269,10 @@ a:hover {
 #content table thead th {    
     padding: 10px 5px;
     text-align: left;
+    width: 310px;
+}
+
+#content table.high-permition thead th {
     width: 278px;
 }
 
@@ -386,16 +390,55 @@ a:hover {
     margin-bottom: 0;
 }
 
-#comments .single-comment p:first-child {
+#comments .single-comment p:first-child,
+#comments .single-comment p:nth-child(3) {
     background-color: #e0e0e0;
     font-size: 12px;
     padding: 5px;
 }
 
-#comments .single-comment p:last-child {
+#comments .single-comment p:nth-child(2) {
     background-color: #f0f0f0;
     line-height: 18px;
     padding: 5px;
+}
+
+/* ACCOUNT PAGE */
+
+#change-passwd-form label {
+    display: inline-block;
+    width: 112px;
+}
+
+#change-passwd-form p {
+    margin-bottom: 10px;
+}
+
+/* Admin Form */
+
+#admin-form input[type="radio"] {
+    margin-right: 4px;
+}
+
+#change-user-access {
+    padding-top: 40px;
+}
+
+#change-user-access p {
+    padding-bottom: 10px;
+}
+
+#change-user-access p label {
+    padding-right: 20px;
+}
+
+#change-user-access p span {
+    font-weight: bold;
+}
+
+#choose-user input[name="delete-user"] {
+    background-color: #f00;
+    color: #fff;
 }
 
 /*************************************************

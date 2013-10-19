@@ -7,7 +7,9 @@ require 'includes/connection.php';
 require 'includes/messages.php';
 require 'includes/functions.php';
 
-if (existLoggedUser()) {
+$existLoggedUser = existLoggedUser();
+
+if ($existLoggedUser) {
     $username = $_SESSION['username'];
     $userId = $_SESSION['userId'];
 }
@@ -23,7 +25,7 @@ if (existLoggedUser()) {
     <body>
         <div id="wrapper">
             <header id="header" role="banner">
-                <?php if (existLoggedUser()) { ?>                
+                <?php if ($existLoggedUser) { ?>                
                     <div id="hello-user">
                         <p>Hello, <?php echo $username . ' ' . printAccessLevelName($connection, $_SESSION['accessLevel']); ?> | <a href="processing/logout.php">Logout</a></p>
                     </div>                
@@ -60,9 +62,14 @@ if (existLoggedUser()) {
                     <li>
                         <a <?php checkForCurrentPage($pageTitle, 'Add Author') ?> href="add-author.php">Add Author</a>
                     </li>
-                    <?php if (existLoggedUser()) { ?>
+                    <?php if ($existLoggedUser) { ?>
                         <li>
                             <a <?php checkForCurrentPage($pageTitle, 'Account') ?> href="account.php">Account</a>
+                        </li>
+                    <?php } ?>
+                    <?php if(isset($_SESSION['accessLevel']) && $_SESSION['accessLevel'] > 2) { ?>
+                        <li>
+                            <a <?php checkForCurrentPage($pageTitle, 'Administration') ?> href="administration.php">Administration</a>
                         </li>
                     <?php } ?>
                 </ul>

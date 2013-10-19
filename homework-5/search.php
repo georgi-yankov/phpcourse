@@ -67,7 +67,10 @@ if (existSearchResults($connection, $bookTitle, $messages)) {
                 <?php $booksCounter++; ?>
                 <tr>
                     <td><?php echo $booksCounter; ?>.</td>
-                    <td><?php echo $value['bookTitle'] ?></td>
+                    <td>
+                        <a href="book.php?book=<?php echo $key; ?>" title="More info about &quot;<?php echo $value['bookTitle']; ?>&quot;"><?php echo $value['bookTitle']; ?></a>
+                        <span>[<?php echo count(getCommentsByBookId($connection, $key, $messages)); ?>]</span>
+                    </td>
                     <td>
                         <?php
                         foreach ($value['authorInfo'] as $kk => $vv) {
