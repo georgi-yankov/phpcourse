@@ -1,7 +1,5 @@
 <?php
 
-require realpath(dirname(__FILE__) . '/../config.php');
-
 function renderLayoutWithContentFile($contentFile, $variables = array()) {
     $contentFileFullPath = TEMPLATES_PATH . '/' . $contentFile;
 
