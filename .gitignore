@@ -213,3 +213,10 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+/nbproject/private/
+
+#############
+## Added by Georgi Yankov
+#############
+
+nbproject
